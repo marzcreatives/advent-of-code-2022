@@ -4,11 +4,11 @@ const fs = require('fs');
 const inputFile = 'day3input.txt';
 const input = fs.readFileSync(inputFile, 'utf-8');
 
-// Split the input into an array of lines
-
+// Set the number of priority points
 function lowPriority(char){return char.charCodeAt(0) - 96;}
 function highPriority(char){return char.charCodeAt(0) - 38;}
 
+// Check for repeated items per two halves of a line
 function repeatedItem(input) {
     const lines = input.trim().split('\n');
     const items = [];
@@ -39,6 +39,7 @@ function repeatedItem(input) {
     return items;
 }
 
+// Sum the priorities
 function priorityAmount(items){
     let sum = 0;
     for(const item of items){
